@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 // simple query
 connection.query(
   'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45',
-  function(err, results, fields) {
+  function (err, results, fields) {
     console.log(results); // results contains rows returned by server
     console.log(fields); // fields contains extra meta data about results, if available
   }
@@ -22,7 +22,7 @@ connection.query(
 connection.query(
   'SELECT * FROM `table` WHERE `name` = ? AND `age` > ?',
   ['Page', 45],
-  function(err, results) {
+  function (err, results) {
     console.log(results);
   }
 );
@@ -49,7 +49,7 @@ function startApp() {
         ]
       }
     ])
-    .then(function(answer) {
+    .then(function (answer) {
       switch (answer.action) {
         case "View all departments":
           viewDepartments();
@@ -69,9 +69,10 @@ function startApp() {
         case "Add an employee":
           addEmployee();
           break;
-          
-}
 
+      }
+    });
+}
 // Function to view all departments
 function viewDepartments() {
   connection.query("SELECT * FROM department", (err, res) => {
@@ -229,3 +230,5 @@ function updateEmployeeRole() {
       );
     });
 }
+startApp();
+
