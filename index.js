@@ -6,7 +6,8 @@ const mysql = require("mysql2");
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  database: 'test_db'
+  database: 'employees_db',
+  password: 'Dorcas5241'
 });
 
 // simple query
@@ -77,6 +78,9 @@ function startApp() {
 function viewDepartments() {
   connection.query("SELECT * FROM department", (err, res) => {
     if (err) throw err;
+    if  (err) {
+      console.log(err);
+    }
     console.table(res);
     startApp();
   });
