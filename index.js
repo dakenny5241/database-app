@@ -70,6 +70,8 @@ function startApp() {
         case "Add an employee":
           addEmployee();
           break;
+          default:
+            process.exit(1);
 
       }
     });
